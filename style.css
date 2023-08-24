@@ -9,16 +9,15 @@
 }
 
 .case {
-    border: 1px solid #000;
     position: relative;
 }
 
 .noire {
-    background-color: black;
+    background-color: RGB(119, 153, 84);
 }
 
 .blanche {
-    background-color: white;
+    background-color: RGB(233, 237, 204);
 }
 
 .switch {
@@ -115,4 +114,20 @@ body {
 
 .coor-white {
     color: white;
+}
+
+.fa-chess-pawn, .fa-chess-rook, .fa-chess-knight, .fa-chess-bishop, .fa-chess-queen, .fa-chess-king {
+    position: absolute;
+    bottom: 50%;
+    right: 30%;
+    cursor: grab;
+    font-size: 3rem;
+}
+
+.masquerEchiquier {
+    display: none;
+}
+
+.carre2 {
+    display: none;
 }
