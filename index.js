@@ -1,11 +1,15 @@
-let tour = "blancs";
+const pieces = document.querySelectorAll('.piece');
+let pieceBeingDragged = null;
+let tourBlancs = true;
+const piecesWhite = document.querySelectorAll('.fa-regular');
+const piecesBlack = document.querySelectorAll('.fa-solid');
+let carre = document.getElementsByClassName('carre')[0];
+let carre2 = document.getElementsByClassName('carre2')[0];
 
-//Fonction pour inverser l'échiquier
+// Fonction pour inverser l'échiquier
 function colorChoice() {
     let colorWhite = true;
     const toggle = document.getElementsByClassName('toggle')[0];
-    let carre = document.getElementsByClassName('carre')[0];
-    let carre2 = document.getElementsByClassName('carre2')[0];
     let isProcessingClick = false;
 
     toggle.addEventListener("click", function() {
@@ -29,11 +33,7 @@ function colorChoice() {
 }
 colorChoice();
 
-
 // Fonctions de déplacement des pions
-const pieces = document.querySelectorAll('.piece');
-let pieceBeingDragged = null;
-
 pieces.forEach(piece => {
     piece.addEventListener('dragstart', dragStart);
     piece.addEventListener('dragend', dragEnd);
@@ -46,7 +46,15 @@ function dragStart(event) {
 
 function dragEnd() {
     pieceBeingDragged = null;
+    tourBlancs = !tourBlancs;
 }
+
+carre.addEventListener('drop', function(event) {
+    console.log("un move");
+    if (tourBlancs === true) {
+        event.preventDefault();
+    }
+});
 
 const squares = document.querySelectorAll('.case');
 
@@ -75,7 +83,7 @@ function dragDrop() {
     this.classList.remove('hovered'); // Supprime la classe hover
 }
 
-//Fonction restart
+// Fonction restart
 const reloadButton = document.getElementById('restart');
 reloadButton.addEventListener('click', function() {
     location.reload();
