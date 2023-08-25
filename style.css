@@ -94,7 +94,7 @@ body {
     gap: 1rem;
 }
 
-.restart {
+#restart {
     display: flex;
     margin-top: 30rem;
     cursor: pointer;
